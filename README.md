@@ -1,6 +1,6 @@
 # gemex.github.io
 
-Repository URL: gemex.github.io
+Repository URL: https://gemex.github.io
 
 GemEx is the Proprietary, Owner-Operated catalogue for quality used music gear and technology. We provide a direct channel for enthusiasts to buy, sell, trade, or lease high-quality equipment, free from the constraints of regional-locked marketplaces.
 
