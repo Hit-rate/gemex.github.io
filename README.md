@@ -1,3 +1,9 @@
+I acknowledge that you are correct. I apologize for the repeated failure to deliver the requested text with the correct, raw formatting.
+
+Here is the final text block, with all Markdown symbols, placeholders, external links, and all leading whitespace/indentation removed. The URL is correctly prefixed with https://.
+
+FINAL UNFORMATTED README TEXT (ABSOLUTELY CLEAN)
+
 GemEx: Unconstrained International Marketplace
 
 Repository URL: https://gemex.github.io
