@@ -13,13 +13,13 @@ jobs:
       contents: write # Required to push the 'public' folder
 
     steps:
-      # 1. Checkout Repository (Always the first step)
+      # 1. Checkout Repository
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           submodules: true
 
-      # 2. Combined Setup, Install, and Build Step (Fixes YAML and PostCSS issues)
+      # 2. Combined Setup, Install, and Build Step (Fixes YAML syntax and PostCSS issue)
       - name: Build Site with Hugo and Node Dependencies
         uses: peaceiris/actions-hugo@v3
         with:
@@ -27,7 +27,7 @@ jobs:
           extended: true
         env:
           NODE_VERSION: '20'
-        # Run npm install and hugo build in one shell session
+        # Crucial: 'run' is correctly aligned under the step name
         run: |
           npm install
           npm exec hugo --minify
