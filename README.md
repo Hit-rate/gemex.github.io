@@ -1,4 +1,4 @@
-# gemex.github.io
+GemEx: Unconstrained International Marketplace
 
 Repository URL: https://gemex.github.io
 
@@ -26,7 +26,7 @@ All transactions must be pre-paid in full before any item is shipped.
 
     Price Stated: The price listed on the website is for the item only and does NOT include shipping costs or PayPal fees.
 
-    Contact First: The buyer must contact hitrate@gmail.com before payment to obtain the accurate Shipping Cost + Insurance.
+    Contact First: The buyer must contact hitrate@gmail.com before payment to obtain the accurate Shipping Cost and Insurance.
 
     Total Transfer Calculation: The buyer is responsible for transferring the FULL TOTAL AMOUNT calculated as: Total Transfer = Item Price + Shipping Cost + PayPal Fee
 
