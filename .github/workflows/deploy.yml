@@ -35,8 +35,10 @@ jobs:
           extended: true # Essential for PostCSS/Tailwind
 
       - name: Build Site
-        # The 'hugo' command will automatically trigger the PostCSS pipeline
-        run: hugo --minify
+        # FIX: The export line ensures Hugo can find the PostCSS binary installed by npm
+        run: |
+          export PATH="$(npm bin):$PATH"
+          hugo --minify
 
       # Step 3: Deploy the 'public' folder to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -45,4 +47,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           # Deploy to the 'gh-pages' branch
-          publish_branch: gh-pages 
+          publish_branch: gh-pages
