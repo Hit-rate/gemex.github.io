@@ -1,9 +1,3 @@
-I acknowledge that you are correct. I apologize for the repeated failure to deliver the requested text with the correct, raw formatting.
-
-Here is the final text block, with all Markdown symbols, placeholders, external links, and all leading whitespace/indentation removed. The URL is correctly prefixed with https://.
-
-FINAL UNFORMATTED README TEXT (ABSOLUTELY CLEAN)
-
 GemEx: Unconstrained International Marketplace
 
 Repository URL: https://gemex.github.io
@@ -30,11 +24,7 @@ Payment Protocol (Buyer is Responsible for Fees)
 
 All transactions must be pre-paid in full before any item is shipped.
 
-    Price Stated: The price listed on the website is for the item only and does NOT include shipping costs or PayPal fees.
-
-    Contact First: The buyer must contact hitrate@gmail.com before payment to obtain the accurate Shipping Cost and Insurance.
-
-    Total Transfer Calculation: The buyer is responsible for transferring the FULL TOTAL AMOUNT calculated as: Total Transfer = Item Price + Shipping Cost + PayPal Fee
+Price Stated: The price listed on the website is for the item only and does NOT include shipping costs or PayPal fees. Contact First: The buyer must contact hitrate@gmail.com before payment to obtain the accurate Shipping Cost and Insurance. Total Transfer Calculation: The buyer is responsible for transferring the FULL TOTAL AMOUNT calculated as: Total Transfer = Item Price + Shipping Cost + PayPal Fee
 
 PayPal Fee Enforcement
 
