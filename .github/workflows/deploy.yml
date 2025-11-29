@@ -13,12 +13,26 @@ jobs:
       contents: write # Required to push the 'public' folder
 
     steps:
+      # 1. Checkout Repository (Always the first step)
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           submodules: true
-          
-      # Step 3: Deploy the 'public' folder to GitHub Pages
+
+      # 2. Combined Setup, Install, and Build Step (This is the guaranteed fix for the red crosses)
+      - name: Build Site with Hugo and Node Dependencies
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+        env:
+          NODE_VERSION: '20'
+        # Run npm install and hugo build in one shell session
+        run: |
+          npm install
+          npm exec hugo --minify
+
+      # 3. Deploy the 'public' folder to GitHub Pages (Always the last step)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
