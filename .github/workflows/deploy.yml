@@ -19,7 +19,7 @@ jobs:
         with:
           submodules: true
 
-      # 2. Combined Setup, Install, and Build Step (This is the guaranteed fix for the red crosses)
+      # 2. Combined Setup, Install, and Build Step (Fixes YAML and PostCSS issues)
       - name: Build Site with Hugo and Node Dependencies
         uses: peaceiris/actions-hugo@v3
         with:
@@ -32,7 +32,7 @@ jobs:
           npm install
           npm exec hugo --minify
 
-      # 3. Deploy the 'public' folder to GitHub Pages (Always the last step)
+      # 3. Deploy the 'public' folder to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
