@@ -19,20 +19,28 @@ jobs:
         with:
           submodules: true
 
-      # 2. Combined Setup, Install, and Build Step (Fixes YAML syntax and PostCSS issue)
-      - name: Build Site with Hugo and Node Dependencies
+      # 2. Setup Node.js Environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install Node Dependencies (Tailwind/PostCSS)
+      - name: Install Dependencies
+        run: npm install
+
+      # 4. Setup Hugo (Extended required for PostCSS/Tailwind)
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
-        env:
-          NODE_VERSION: '20'
-        # Crucial: 'run' is correctly aligned under the step name
-        run: |
-          npm install
-          npm exec hugo --minify
+      
+      # 5. Build the Site (Uses npm exec to find PostCSS binaries reliably)
+      - name: Build Site
+        run: npm exec hugo --minify
 
-      # 3. Deploy the 'public' folder to GitHub Pages
+      # 6. Deploy the 'public' folder to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
