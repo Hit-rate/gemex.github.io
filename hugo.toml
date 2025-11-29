@@ -1,3 +1,4 @@
+# For local development. Change back to the full GitHub URL before deploying.
 baseURL = "https://hit-rate.github.io/gemex.github.io/"
 languageCode = "en-us"
 title = "GemEx: International Gear Sales"

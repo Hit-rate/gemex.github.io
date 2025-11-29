@@ -1,0 +1,48 @@
+# deploy.yml
+name: Build and Deploy Hugo Site
+
+on:
+  push:
+    branches:
+      - main # Set this to your main publishing branch
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push the 'public' folder
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      # Step 1: Install Node.js dependencies (Tailwind, PostCSS)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      # Step 2: Build the Hugo site with the Extended version
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true # Essential for PostCSS/Tailwind
+
+      - name: Build Site
+        # The 'hugo' command will automatically trigger the PostCSS pipeline
+        run: hugo --minify
+
+      # Step 3: Deploy the 'public' folder to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          # Deploy to the 'gh-pages' branch
+          publish_branch: gh-pages 

@@ -1,0 +1,21 @@
+# --- Gemini Exclusion List (.aiexclude) ---
+# This file prevents the AI from indexing large or irrelevant directories.
+
+# Dependency and Build Artifacts (Crucial for stability)
+node_modules/
+vendor/
+.git/
+.svn/
+
+# Hugo/Web Build and Cache Folders
+public/
+resources/_gen/
+.cache/
+
+# Large/Binary Files
+*.log
+*.zip
+*.rar
+*.tar
+*.iso
+*.dmg

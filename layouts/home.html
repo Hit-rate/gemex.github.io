@@ -1,0 +1,69 @@
+{{ define "main" }}
+<!-- Physical Gear Section -->
+<section id="gear" class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 pb-3 border-b border-gray-700 text-teal-400">Physical Gear for Sale/Lease/Trade</h2>
+    <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {{ $products := where .Site.RegularPages "Section" "products" }}
+        {{ range $products }}
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-teal-500/20">
+            {{ with .Params.image_url }}
+            <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-48 object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/94a3b8?text=Image+Unavailable';" loading="lazy">
+            {{ end }}
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-white mb-2">{{ .Title }}</h3>
+                <div class="text-sm text-gray-400 mb-4">
+                    {{ .Content }}
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-2xl font-extrabold text-orange-400">{{ .Params.currency }} {{ printf "%.2f" .Params.price }}</span>
+                    <span class="text-xs text-gray-500 bg-gray-700 px-2 py-1 rounded-full">PHYSICAL</span>
+                </div>
+                <p class="text-xs text-gray-500 italic mb-4">{{ .Params.shipping }}</p>
+
+                <!-- PayPal Form -->
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="mt-4 paypal-form">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="torbenscharling@gmail.com">
+                    <input type="hidden" name="item_name" value="{{ .Title }}">
+                    <input type="hidden" name="amount" value="{{ .Params.price }}">
+                    <input type="hidden" name="currency_code" value="{{ .Params.currency }}">
+                    <input type="hidden" name="no_shipping" value="2"> <!-- 1 = prompt for address, but do not require. 2 = do not prompt for address -->
+                    <input type="hidden" name="return" value="https://hit-rate.github.io/gemex.github.io/thank-you">
+                    <input type="hidden" name="cancel_return" value="https://hit-rate.github.io/gemex.github.io/">
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 shadow-md transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-teal-500/50">
+                        BUY NOW {{ .Params.currency }} {{ printf "%.2f" .Params.price }}
+                    </button>
+                </form>
+                <button class="w-full mt-2 text-sm text-center text-teal-400 hover:text-teal-300 transition duration-150">
+                    LEASE / TRADE INQUIRY
+                </button>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>
+
+<!-- Digital Content Section (Placeholder) -->
+<section id="digital" class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 pb-3 border-b border-gray-700 text-orange-400">Original Digital Content & Downloads</h2>
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+        <p class="text-lg mb-4 text-gray-300">
+            Thousands of exclusive WAVs, loops, and content packs will be available here for purchase and download.
+        </p>
+    </div>
+</section>
+
+<!-- Licensing & Info Section -->
+<section id="licensing">
+    <h2 class="text-3xl font-bold mb-8 pb-3 border-b border-gray-700 text-purple-400">Licensing, Streaming & Usage Rights</h2>
+    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+        <p class="text-gray-300">
+            My full catalog of audio, video, and creative assets is available for commercial licensing. This system ensures instant, automated delivery of usage rights after checkout.
+        </p>
+        <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+            <li class="text-white"><strong>Content Security Note:</strong> Digital content is hosted securely off-site and delivered via a time-limited, single-use download link only upon successful PayPal verification.</li>
+            <li class="text-white"><strong>Shipping/Privacy Note:</strong> All physical items are shipped using third-party services. Your address is required for delivery, but my personal address is not provided on the package unless mandated by the courier's return policy.</li>
+        </ul>
+    </div>
+</section>
+{{ end }}
